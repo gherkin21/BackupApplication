@@ -1,13 +1,13 @@
-from args.args import get_args
+# from .args.args import get_args
 from os import path
 from google.cloud import storage
 
-args = get_args()
+# args = get_args()
 
-def upload_blob(bucket_name, source_file_name, prefix):
+def upload_blob(bucket_name, source_file_name, prefix, credentials=None):
     """Uploads a file to the bucket."""
-    if args.credentials is not None:
-        storage_client = storage.Client.from_service_account_json(args.credentials)
+    if credentials is not None:
+        storage_client = storage.Client.from_service_account_json(credentials)
     else:
         storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
