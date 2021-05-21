@@ -1,8 +1,5 @@
-# from .args.args import get_args
 from os import path
 from google.cloud import storage
-
-# args = get_args()
 
 def upload_blob(bucket_name, source_file_name, prefix, credentials=None):
     """Uploads a file to the bucket."""
